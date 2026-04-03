@@ -1,0 +1,36 @@
+pipeline {
+  agent any 
+  
+  stages {
+     stage('CLEANUP Workspace'){
+        steps {
+            cleanWs()
+        }
+    }
+
+    stage('CLEAN Workspace') {
+       steps {
+            git branch: 'main', url: 'https://github.com/aissatou00/depotgithub.git'
+             }
+      }
+      
+    }
+
+   stage('Installer Docker') {
+	steps {
+                sh 'sudo apt autoremove docker.io docker-compose -y'	      
+                sh 'sudo apt update'
+		sh 'sudo apt install apt-transport-https ca-certificates curl software-properties-common -y'
+	        sh 'sudo apt install docker.io -y'
+	        sh 'sudo apt update'
+	        sh 'sudo chmod 666 /var/run/docker.sock'
+ 		sh 'sudo usermod -aG docker $USER'
+ 		sh 'sudo systemctl start docker.service'
+
+
+	  }
+      }
+
+   }
+
+}
