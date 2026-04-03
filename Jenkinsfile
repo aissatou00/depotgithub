@@ -8,7 +8,7 @@ pipeline {
 
      stage('CLEANUP Workspace') {
        steps {
-         sh 'git clone https://github.com/aissatou00/depotgithub.git'
+            git branch: 'main', credentialsId: 'root', url: 'https://github.com/aissatou00/depotgithub.git'
              }
            }
         }
