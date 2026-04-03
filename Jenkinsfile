@@ -1,6 +1,5 @@
 pipeline {
-  agent any
-  
+  agent any 
   stages {
     stage('CLEANUP Workspace')
       steps {
