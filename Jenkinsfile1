@@ -8,9 +8,9 @@ pipeline {
         }
     }
 
-    stage('CLEAN Workspace') {
-       steps {
-            git branch: 'main', url: 'https://github.com/aissatou00/depotgithub.git'
+     stage('CLEAN Workspace') {
+        steps {
+           git branch: 'main', url: 'https://github.com/aissatou00/depotgithub.git'
              }
       }
   }
