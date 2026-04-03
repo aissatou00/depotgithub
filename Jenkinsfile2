@@ -14,8 +14,6 @@ pipeline {
              }
       }
       
-    }
-
     stage('Installer Docker') {
 	    steps {
                 sh 'sudo apt autoremove docker.io docker-compose -y'	      
