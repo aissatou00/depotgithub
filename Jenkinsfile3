@@ -18,22 +18,19 @@ pipeline {
 	    steps {
                 sh 'sudo apt autoremove docker.io docker-compose -y'	      
                 sh 'sudo apt update'
-		            sh 'sudo apt install apt-transport-https ca-certificates curl software-properties-common -y'
-	              sh 'sudo apt install docker.io -y'
-	              sh 'sudo apt update'
-	              sh 'sudo chmod 666 /var/run/docker.sock'
- 		            sh 'sudo usermod -aG docker $USER'
- 		            sh 'sudo systemctl start docker.service'
+		        sh 'sudo apt install apt-transport-https ca-certificates curl software-properties-common -y'
+	            sh 'sudo apt install docker.io -y'
+	            sh 'sudo apt update'
+	            sh 'sudo chmod 666 /var/run/docker.sock'
+ 		        sh 'sudo usermod -aG docker $USER'
+ 		        sh 'sudo systemctl start docker.service'
 	       }
        }
 
     stage('build image docker') {
       steps {
-                  script {
-                  //sh 'sudo docker image rm -f "myapp-image:latest"'                    
-                  sh 'sudo docker build -t "myapp-image" .'
-                  sh 'sudo docker image ls'  
-                          }
+              sh 'sudo docker build -t "myapp-image" .'
+              sh 'sudo docker image ls'  
              }
        }
    }
